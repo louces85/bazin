@@ -29,6 +29,3 @@ class Dividends():
         self._list_sum_div_by_year = [{'year': year, 'sum': sum} for year, sum in sum_by_year.items()]
         
         return self._list_sum_div_by_year[::-1]
-
-# t = Dividends("CEEB3")
-# print(t.get_all_dividens_by_year())

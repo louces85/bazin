@@ -41,7 +41,7 @@ class Valuation:
         except Exception as e:
             return None
         
-        higher_price = avg/0.06
+        higher_price = avg/Rules.BASIN.value
         return higher_price
             
     def search_value_by_year(self,list_of_dictionary, year):
@@ -88,9 +88,3 @@ class Valuation:
                 points += 1
         
         return points
-        
-
-
-# t = Valuation("BOAS3",'all_indicators.json')
-# print(t.get_higher_price())
-# print(t.calculate_points_from_indicators())
