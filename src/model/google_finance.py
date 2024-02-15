@@ -15,7 +15,6 @@ class GoogleFinance:
             price_html = response.text.split("YMlKec fxKbKc")[1]
             soup = BeautifulSoup(price_html, "html.parser")
             
-            
             price_text = soup.text
             price_match = re.search(r'(\d+\.\d+)', price_text)
             if price_match:
@@ -25,5 +24,4 @@ class GoogleFinance:
                 return "Value not found"
 
         except Exception as e:
-            temp = ticker
             raise e

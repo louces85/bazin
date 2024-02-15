@@ -88,6 +88,5 @@ if __name__ == '__main__':
               
         except Exception as e:
             logging.exception(f"Error:{e}")
-            print(dictionary)
     
     save_results(myTable)
