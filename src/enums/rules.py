@@ -14,5 +14,5 @@ class Rules(Enum):
     ROIC = 10
     CAGR_R = 5
     CAGR_L = 5
-    BASIN = 0.06
+    BAZIN = 0.06
     

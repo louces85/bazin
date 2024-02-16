@@ -41,7 +41,7 @@ class Valuation:
         except Exception as e:
             return None
         
-        higher_price = avg/Rules.BASIN.value
+        higher_price = avg/Rules.BAZIN.value
         return higher_price
             
     def search_value_by_year(self,list_of_dictionary, year):
