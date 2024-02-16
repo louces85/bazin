@@ -49,9 +49,12 @@ if __name__ == '__main__':
     for dictionary in tqdm(list_all_indicators, desc="progress"):
         try:
 
+            if(not dictionary.get('p_l', None) or not dictionary.get('liquidezmediadiaria', None)):
+                continue
+
             if any(condition(dictionary.get(indicator, None)) for indicator, condition in conditions.items()):
                 continue
-                    
+
             ticker = dictionary['ticker']
             
             google_finance = GoogleFinance()
@@ -70,7 +73,7 @@ if __name__ == '__main__':
 
             thread.join()
             
-            if(not price_bazin is None):
+            if(not price_bazin is None and not price_now is None):
                 price_bazin = round(price_bazin,2)
                 points_ticker = valuation.calculate_points_from_indicators()
                 vpa_ticker = valuation.vpa
@@ -87,6 +90,6 @@ if __name__ == '__main__':
                 )
               
         except Exception as e:
-            logging.exception(f"Error:{e}")
-    
+            logging.exception(f"Error in ticker {ticker}: {e}")
+            
     save_results(myTable)
