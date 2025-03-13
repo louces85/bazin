@@ -78,7 +78,7 @@ if __name__ == '__main__':
                 points_ticker = valuation.calculate_points_from_indicators()
                 vpa_ticker = valuation.vpa
                 ganho = round((price_bazin-price_now)*100/price_now,2)
-
+                logging.info("{}:{}".format(ticker, price_bazin))
                 myTable.add_row(
                     [ticker,
                     price_now,
