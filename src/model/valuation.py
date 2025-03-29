@@ -24,6 +24,9 @@ class Valuation:
 
         if(not list_div):
             return None
+        
+        if list_div[0]["year"] < datetime.datetime.now().year - 1:
+            return None
 
         sum_of_div = 0
         numbers_of_years = 0
