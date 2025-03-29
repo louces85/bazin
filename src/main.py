@@ -11,6 +11,7 @@ LDM = 100000
 
 myTable = PrettyTable(
     ["Ticker",
+     "Compra",
     "Preco Atual",
     "Valor Patrimonial",
     "Preco Teto",
@@ -78,9 +79,16 @@ if __name__ == '__main__':
                 points_ticker = valuation.calculate_points_from_indicators()
                 vpa_ticker = valuation.vpa
                 ganho = round((price_bazin-price_now)*100/price_now,2)
+                if(ganho < 0 or ganho > 300):
+                    continue
                 logging.info("{}:{}".format(ticker, price_bazin))
+                flag = ganho > 0 and price_now < vpa_ticker
+                buy = "-"
+                if flag:
+                    buy = "Sim"
                 myTable.add_row(
                     [ticker,
+                     buy,
                     price_now,
                     vpa_ticker,
                     price_bazin,
