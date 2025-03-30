@@ -82,10 +82,15 @@ if __name__ == '__main__':
                 if(ganho < 0 or ganho > 300):
                     continue
                 logging.info("{}:{}".format(ticker, price_bazin))
-                flag = ganho > 0 and price_now < vpa_ticker
+                flag_one = ganho > 0 
+                flag_two = price_now < vpa_ticker
                 buy = "-"
-                if flag:
-                    buy = "Sim"
+                
+                if flag_one and flag_two:
+                    buy = 'Sim'
+                elif flag_one or flag_two:
+                    buy = 'Talvez'
+                
                 myTable.add_row(
                     [ticker,
                      buy,
